@@ -20,7 +20,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch:sass": "node-sass src/sass/main.scss src/css/style.css -w",
+    "compile:sass": "node-sass src/sass/main.scss src/style/style.css",
+    "prefix:css": "postcss src/css/style.css --use autoprefixer -o src/css/style.css",
+    "compress:css": "node-sass src/css/style.css src/css/style.min.css --output-style compressed",
+    "build:css": "npm-run-all prefix:css compress:css"
   },
   "eslintConfig": {
     "extends": [
@@ -28,16 +33,12 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "browserslist": "last 10 versions",
+  "devDependencies": {
+    "autoprefixer": "^10.2.4",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.6",
+    "postcss-cli": "^8.3.1"
   }
 }
